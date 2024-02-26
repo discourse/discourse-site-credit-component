@@ -1,7 +1,7 @@
 import Component from "@glimmer/component";
 import icon from "discourse-common/helpers/d-icon";
-import DTooltip from "float-kit/components/d-tooltip";
 import i18n from "discourse-common/helpers/i18n";
+import DTooltip from "float-kit/components/d-tooltip";
 
 export default class SiteCredit extends Component {
   get encodedRef() {
