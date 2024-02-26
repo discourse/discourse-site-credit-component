@@ -1,0 +1,5 @@
+en:
+  theme_metadata:
+    description: "Adds a link back to discourse.org"
+  powered_by: "Powered by Discourse"
+  cta: "Visit discourse.org to start your free trial today!"

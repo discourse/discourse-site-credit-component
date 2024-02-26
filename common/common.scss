@@ -1,0 +1,71 @@
+.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.25s ease-in-out;
+
+  a {
+    display: flex;
+    gap: 0.33em;
+    color: var(--primary-medium);
+    &:visted {
+      color: currentColor;
+    }
+  }
+  &.-expanded {
+    a {
+      color: var(--primary);
+      &:visted {
+        color: currentColor;
+      }
+    }
+  }
+
+  @if $style == "badge" {
+    padding: 0.25em 0.85em 0.25em 0.5em;
+    background: var(--primary-very-low);
+    border-radius: 0.75em 0.75em 0.75em 0;
+    color: var(--primary-medium);
+    font-size: var(--font-down-1);
+    letter-spacing: 0.3px;
+    margin-left: -0.35em;
+
+    .discourse-site-credit__logo--color {
+      display: none;
+    }
+  }
+
+  @if $style == "text" {
+    a {
+      color: var(--primary-high);
+    }
+
+    .discourse-site-credit__logo--icon {
+      display: none;
+    }
+
+    .discourse-site-credit__logo--color {
+      position: relative;
+      top: 0.15em;
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      background-image: var(--discourse-logo);
+      background-size: cover;
+    }
+  }
+}
+
+[data-identifier="discourse-site-credit"] {
+  margin-top: 0.5em;
+}
+
+.more-topics__container + [data-identifier="discourse-site-credit"] {
+  position: relative;
+  top: -0.5em; // more consistent spacing
+  margin-top: 0;
+  margin-bottom: 0.15em;
+}
+
+#d-tooltip-portal-outlet [data-identifier="discourse-site-credit"] {
+  font-size: var(--font-down-1);
+}
