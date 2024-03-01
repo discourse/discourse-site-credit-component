@@ -1,7 +1,24 @@
+.has-full-page-chat {
+  #discourse-site-credit-mobile,
+  .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+    // doesn't work on chat due to full-height layout
+    display: none !important;
+  }
+}
+
+.admin-area {
+  #discourse-site-credit-mobile,
+  .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+    display: none; // hides on admin area
+  }
+}
+
+#discourse-site-credit-mobile,
 .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
   display: inline-flex;
   align-items: center;
   transition: color 0.25s ease-in-out;
+  margin-left: -0.01em; // fixes tooltip position for some reason
 
   a {
     display: flex;
@@ -21,13 +38,13 @@
   }
 
   @if $style == "badge" {
+    margin-left: -0.35em;
     padding: 0.25em 0.85em 0.25em 0.5em;
     background: var(--primary-very-low);
     border-radius: 0.75em 0.75em 0.75em 0;
     color: var(--primary-medium);
     font-size: var(--font-down-1);
     letter-spacing: 0.3px;
-    margin-left: -0.35em;
 
     .discourse-site-credit__logo--color {
       display: none;
@@ -35,6 +52,7 @@
   }
 
   @if $style == "text" {
+    opacity: 0.8;
     a {
       color: var(--primary-high);
     }
@@ -45,27 +63,40 @@
 
     .discourse-site-credit__logo--color {
       position: relative;
-      top: 0.15em;
+      top: 0.2em;
       display: inline-block;
       width: 1em;
       height: 1em;
       background-image: var(--discourse-logo);
       background-size: cover;
+      transition: opacity 0.25s ease-in-out, filter 0.25s ease-in-out;
+      .discourse-no-touch & {
+        filter: saturate(0);
+      }
+    }
+
+    &:hover {
+      opacity: 1;
+      .discourse-no-touch & {
+        .discourse-site-credit__logo--color {
+          filter: saturate(1);
+        }
+      }
     }
   }
 }
 
-[data-identifier="discourse-site-credit"] {
-  margin-top: 0.5em;
-}
-
-.more-topics__container + [data-identifier="discourse-site-credit"] {
-  position: relative;
-  top: -0.5em; // more consistent spacing
-  margin-top: 0;
-  margin-bottom: 0.15em;
+#discourse-site-credit-mobile,
+.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+  position: absolute;
+  bottom: 1em;
 }
 
 #d-tooltip-portal-outlet [data-identifier="discourse-site-credit"] {
   font-size: var(--font-down-1);
+}
+
+body[class*="archetype"] #main-outlet {
+  // avoids overlap in topics
+  padding-bottom: 2em;
 }
