@@ -1,25 +1,29 @@
-.has-full-page-chat {
-  #discourse-site-credit-mobile,
-  .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-    // doesn't work on chat due to full-height layout
-    display: none !important;
-  }
+// easier to hide everywhere...
+#discourse-site-credit-mobile,
+.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+  display: none;
 }
 
-.admin-area {
+// ...and show where desired
+.navigation-topics,
+.navigation-category,
+.navigation-categories,
+body[class*="archetype"],
+body[class*="user-"],
+.users-page,
+.groups-page,
+.tags-page,
+.about-page {
   #discourse-site-credit-mobile,
   .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-    display: none; // hides on admin area
+    display: flex;
   }
 }
 
 #discourse-site-credit-mobile,
 .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-  display: inline-flex;
   align-items: center;
   transition: color 0.25s ease-in-out;
-  margin-left: -0.01em; // fixes tooltip position for some reason
-
   a {
     display: flex;
     gap: 0.33em;
@@ -96,7 +100,11 @@
   font-size: var(--font-down-1);
 }
 
-body[class*="archetype"] #main-outlet {
-  // avoids overlap in topics
-  padding-bottom: 2em;
+.tags-page,
+.groups-page,
+body[class*="archetype"] {
+  #main-outlet {
+    // avoids overlap
+    padding-bottom: 2em;
+  }
 }
