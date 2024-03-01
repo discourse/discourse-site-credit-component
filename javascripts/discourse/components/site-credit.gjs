@@ -16,7 +16,7 @@ export default class SiteCredit extends Component {
       <div id="discourse-site-credit-mobile">
         <a
           id="discourse-site-credit"
-          href="https://discover.discourse.org/powered-by?ref={{this.encodedDomain}}"
+          href="https://discover.discourse.org/powered-by/{{this.encodedDomain}}"
           nofollow="true"
         >
           <span class="discourse-site-credit__logo--color"></span>
@@ -31,7 +31,7 @@ export default class SiteCredit extends Component {
         <:trigger>
           <a
             id="discourse-site-credit"
-            href="https://discover.discourse.org/powered-by?ref={{this.encodedDomain}}"
+            href="https://discover.discourse.org/powered-by/{{this.encodedDomain}}"
             nofollow="true"
           >
             <span class="discourse-site-credit__logo--color"></span>
