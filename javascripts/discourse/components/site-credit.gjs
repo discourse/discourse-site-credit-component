@@ -1,23 +1,22 @@
 import Component from "@glimmer/component";
+import { inject as service } from "@ember/service";
 import icon from "discourse-common/helpers/d-icon";
 import i18n from "discourse-common/helpers/i18n";
 import DTooltip from "float-kit/components/d-tooltip";
 
 export default class SiteCredit extends Component {
-  get encodedRef() {
-    return btoa(encodeURIComponent(window.location.hostname));
+  @service site;
+
+  get encodedDomain() {
+    return btoa(window.location.hostname);
   }
 
   <template>
-    <DTooltip
-      @arrow={{true}}
-      @identifier="discourse-site-credit"
-      @placement="bottom"
-    >
-      <:trigger>
+    {{#if this.site.mobileView}}
+      <div id="discourse-site-credit-mobile">
         <a
           id="discourse-site-credit"
-          href="https://www.discourse.org/pricing?ref={{this.encodedRef}}"
+          href="https://discover.discourse.org/powered-by?ref={{this.encodedDomain}}"
           nofollow="true"
         >
           <span class="discourse-site-credit__logo--color"></span>
@@ -26,10 +25,26 @@ export default class SiteCredit extends Component {
             }}</span>
           <span>{{i18n (themePrefix "powered_by")}}</span>
         </a>
-      </:trigger>
-      <:content>
-        {{i18n (themePrefix "cta")}}
-      </:content>
-    </DTooltip>
+      </div>
+    {{else}}
+      <DTooltip @arrow={{true}} @identifier="discourse-site-credit">
+        <:trigger>
+          <a
+            id="discourse-site-credit"
+            href="https://discover.discourse.org/powered-by?ref={{this.encodedDomain}}"
+            nofollow="true"
+          >
+            <span class="discourse-site-credit__logo--color"></span>
+            <span class="discourse-site-credit__logo--icon">{{icon
+                "fab-discourse"
+              }}</span>
+            <span>{{i18n (themePrefix "powered_by")}}</span>
+          </a>
+        </:trigger>
+        <:content>
+          {{i18n (themePrefix "cta")}}
+        </:content>
+      </DTooltip>
+    {{/if}}
   </template>
 }
