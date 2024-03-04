@@ -100,11 +100,15 @@ body[class*="user-"],
   font-size: var(--font-down-1);
 }
 
-.tags-page,
-.groups-page,
-body[class*="archetype"] {
-  #main-outlet {
-    // avoids overlap
-    padding-bottom: 2em;
+html:not(.composer-open) {
+  // when the composer is opened, the padding is dynamically adjusted
+  // so all content can be scrolled
+  .tags-page,
+  .groups-page,
+  body[class*="archetype"] {
+    #main-outlet {
+      // avoids overlap
+      padding-bottom: 2em;
+    }
   }
 }
