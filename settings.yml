@@ -1,6 +1,0 @@
-style:
-  type: enum
-  default: "text"
-  choices:
-    - "badge"
-    - "text"
