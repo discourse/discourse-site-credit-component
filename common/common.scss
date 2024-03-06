@@ -9,10 +9,11 @@
   font-size: var(--font-down-1);
   letter-spacing: 0.3px;
   gap: 0.33em;
-  padding: 0.133em;
+  padding: 2px;
   background: var(--primary-very-low);
   border-radius: 0.75em 0.75em 0.75em 0;
   transition: all 0.25s ease-in-out;
+  margin-bottom: 1em;
 
   .d-icon {
     position: relative;
@@ -25,7 +26,6 @@
 
   &:hover {
     color: var(--primary-high);
-
     @media (prefers-reduced-motion: no-preference) {
       background: linear-gradient(
         45deg,
@@ -41,17 +41,16 @@
         #00aeef
       );
       background-size: 300%;
-      animation: rainbow-shimmer 0.5s;
+      animation: d-rainbow-shimmer 0.5s;
       animation-iteration-count: 1;
       animation-fill-mode: forwards;
-      animation-direction: alternate;
       animation-timing-function: ease-in-out;
       animation-delay: 0.25s;
     }
   }
 }
 
-@keyframes rainbow-shimmer {
+@keyframes d-rainbow-shimmer {
   0% {
     background-position: 0% 50%;
   }
@@ -64,5 +63,5 @@
 .discourse-site-credit__content {
   background: var(--primary-very-low);
   border-radius: 0.62em 0.62em 0.62em 0;
-  padding: 0.25em 0.75em 0.25em 0.5em;
+  padding: 0.25em 0.65em 0.25em 0.5em;
 }
