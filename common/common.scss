@@ -1,114 +1,68 @@
-// easier to hide everywhere...
-#discourse-site-credit-mobile,
-.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-  display: none;
+.more-topics__container {
+  padding-bottom: 0;
 }
 
-// ...and show where desired
-.navigation-topics,
-.navigation-category,
-.navigation-categories,
-body[class*="archetype"],
-body[class*="user-"],
-.users-page,
-.groups-page,
-.tags-page,
-.about-page {
-  #discourse-site-credit-mobile,
-  .fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-    display: flex;
-  }
-}
-
-#discourse-site-credit-mobile,
-.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
+#discourse-site-credit {
+  display: inline-flex;
   align-items: center;
-  transition: color 0.25s ease-in-out;
-  a {
-    display: flex;
-    gap: 0.33em;
-    color: var(--primary-medium);
-    &:visted {
-      color: currentColor;
-    }
-  }
-  &.-expanded {
-    a {
-      color: var(--primary);
-      &:visted {
-        color: currentColor;
-      }
-    }
-  }
-
-  @if $style == "badge" {
-    margin-left: -0.35em;
-    padding: 0.25em 0.85em 0.25em 0.5em;
-    background: var(--primary-very-low);
-    border-radius: 0.75em 0.75em 0.75em 0;
-    color: var(--primary-medium);
-    font-size: var(--font-down-1);
-    letter-spacing: 0.3px;
-
-    .discourse-site-credit__logo--color {
-      display: none;
-    }
-  }
-
-  @if $style == "text" {
-    opacity: 0.8;
-    a {
-      color: var(--primary-high);
-    }
-
-    .discourse-site-credit__logo--icon {
-      display: none;
-    }
-
-    .discourse-site-credit__logo--color {
-      position: relative;
-      top: 0.2em;
-      display: inline-block;
-      width: 1em;
-      height: 1em;
-      background-image: var(--discourse-logo);
-      background-size: cover;
-      transition: opacity 0.25s ease-in-out, filter 0.25s ease-in-out;
-      .discourse-no-touch & {
-        filter: saturate(0);
-      }
-    }
-
-    &:hover {
-      opacity: 1;
-      .discourse-no-touch & {
-        .discourse-site-credit__logo--color {
-          filter: saturate(1);
-        }
-      }
-    }
-  }
-}
-
-#discourse-site-credit-mobile,
-.fk-d-tooltip__trigger[data-identifier="discourse-site-credit"] {
-  position: absolute;
-  bottom: 1em;
-}
-
-#d-tooltip-portal-outlet [data-identifier="discourse-site-credit"] {
+  color: var(--primary-medium);
   font-size: var(--font-down-1);
-}
+  letter-spacing: 0.3px;
+  gap: 0.33em;
+  padding: 0.133em;
+  background: var(--primary-very-low);
+  border-radius: 0.75em 0.75em 0.75em 0;
+  transition: all 0.25s ease-in-out;
 
-html:not(.composer-open) {
-  // when the composer is opened, the padding is dynamically adjusted
-  // so all content can be scrolled
-  .tags-page,
-  .groups-page,
-  body[class*="archetype"] {
-    #main-outlet {
-      // avoids overlap
-      padding-bottom: 2em;
+  .d-icon {
+    position: relative;
+    top: 0.02em; // vertical alignment
+  }
+
+  &:visted {
+    color: currentColor;
+  }
+
+  &:hover {
+    color: var(--primary-high);
+
+    @media (prefers-reduced-motion: no-preference) {
+      background: linear-gradient(
+        45deg,
+        var(--primary-very-low),
+        var(--primary-very-low),
+        var(--primary-very-low),
+        var(--primary-very-low),
+        var(--primary-very-low),
+        #d0232b,
+        #f15d22,
+        #fff9ae,
+        #00a94f,
+        #00aeef
+      );
+      background-size: 300%;
+      animation: rainbow-shimmer 0.5s;
+      animation-iteration-count: 1;
+      animation-fill-mode: forwards;
+      animation-direction: alternate;
+      animation-timing-function: ease-in-out;
+      animation-delay: 0.25s;
     }
   }
+}
+
+@keyframes rainbow-shimmer {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+    background-size: 300%;
+  }
+}
+
+.discourse-site-credit__content {
+  background: var(--primary-very-low);
+  border-radius: 0.62em 0.62em 0.62em 0;
+  padding: 0.25em 0.75em 0.25em 0.5em;
 }
