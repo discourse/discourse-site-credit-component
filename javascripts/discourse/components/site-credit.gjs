@@ -17,9 +17,9 @@ export default class SiteCredit extends Component {
       nofollow="true"
     >
       <span class="discourse-site-credit__content">
-        <span class="discourse-site-credit__logo--icon">{{icon
-            "fab-discourse"
-          }}</span>
+        <span class="discourse-site-credit__logo--icon">
+          {{icon "fab-discourse"}}
+        </span>
         <span>{{i18n (themePrefix "powered_by")}}</span>
       </span>
     </a>
