@@ -12,7 +12,7 @@ export default class SiteCredit extends Component {
 
   <template>
     <a
-      id="discourse-site-credit"
+      class="discourse-site-credit"
       href="https://discover.discourse.org/powered-by/{{this.encodedDomain}}"
       nofollow="true"
     >
