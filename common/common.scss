@@ -35,7 +35,6 @@
 
   &:hover {
     color: var(--primary-high);
-
     @media (prefers-reduced-motion: no-preference) {
       // secondary repeat is an intentional buffer
       background: linear-gradient(
@@ -54,14 +53,13 @@
       background-size: 300%;
       animation: d-rainbow-shimmer 0.5s;
       animation-fill-mode: forwards;
-      animation-direction: alternate;
       animation-timing-function: ease-in-out;
       animation-delay: 0.25s; // avoid animating on passing hover
     }
   }
 }
 
-@keyframes rainbow-shimmer {
+@keyframes d-rainbow-shimmer {
   0% {
     background-position: 0% 50%;
   }
