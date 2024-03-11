@@ -12,14 +12,14 @@ export default class SiteCredit extends Component {
 
   <template>
     <a
-      id="discourse-site-credit"
+      class="discourse-site-credit"
       href="https://discover.discourse.org/powered-by/{{this.encodedDomain}}"
       nofollow="true"
     >
       <span class="discourse-site-credit__content">
-        <span class="discourse-site-credit__logo--icon">{{icon
-            "fab-discourse"
-          }}</span>
+        <span class="discourse-site-credit__logo--icon">
+          {{icon "fab-discourse"}}
+        </span>
         <span>{{i18n (themePrefix "powered_by")}}</span>
       </span>
     </a>
