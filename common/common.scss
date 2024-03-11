@@ -1,6 +1,8 @@
 .discourse-site-credit {
   .admin-area &,
-  .has-full-page-chat & {
+  .has-full-page-chat &,
+  .static-login &,
+  .invite-page & {
     display: none !important;
   }
   grid-area: below-content;
@@ -54,7 +56,7 @@
       animation: d-rainbow-shimmer 0.5s;
       animation-fill-mode: forwards;
       animation-timing-function: ease-in-out;
-      animation-delay: 0.25s; // avoid animating on passing hover
+      animation-delay: 0.15s; // avoid animating on passing hover
     }
   }
 }
